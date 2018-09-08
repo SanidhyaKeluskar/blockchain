@@ -22,7 +22,7 @@ public class BlockChain {
 		Block k = latestBlock();
 		Block one=new Block(index,time,data);
 		one.previousHash=k.Hash;
-		one.Hash=one.calculateHash();
+		one.Hash=one.mineBlock(6);
 		chain.add(one);
 	}
 	
