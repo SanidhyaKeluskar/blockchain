@@ -6,17 +6,15 @@ public class Main {
 		// TODO Auto-generated method stub
 		BlockChain B1=new BlockChain();
 		System.out.println(B1.latestBlock().Hash);
-		System.out.println("mining block");
-		B1.newBlock(1,23,"hi this is not test");
-		System.out.println();
-		System.out.println(B1.latestBlock().previousHash);
-		System.out.println(B1.latestBlock().Hash);
-		System.out.println();
-		System.out.println("mining block");
-		B1.newBlock(1,23,"hi this is not also test");
-		System.out.println(B1.latestBlock().previousHash);
-		System.out.println(B1.latestBlock().Hash);
+		B1.createTransactions(new Transactions("address1","address2",100));
+		B1.createTransactions(new Transactions("address2","address1",20));
+		System.out.println("starting to mine");
+		B1.minePendingtransactions("address3");
+		B1.createTransactions(new Transactions("address2","address1",70));
+		B1.minePendingtransactions("address3");
+	
 		System.out.println(B1.isValid());
+		System.out.println(B1.getBalance("address3"));
 	}
 
 }
